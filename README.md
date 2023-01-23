@@ -2,7 +2,7 @@
 
 ## Process
 
-1. Create a service account with the ability to `create_scans:security`
+1. Create a service account with the ability to `create:security_scans`
 2. <b>Fork</b> this gthub repo
    * If you do not know how to for.. ask
 3. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
