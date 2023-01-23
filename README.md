@@ -3,7 +3,8 @@
 ## Process
 
 1. Create a service account with the ability to `create_scans:security`
-2. Fork this gthub repo
+2. <b>Fork</b> this gthub repo
+   * If you do not know how to for.. ask
 3. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
     * If there is no file then run `ssh-keygen` to generate one<br>
 4. Create SPN and application for Azure using the script `spn_bucket_create.sh`
