@@ -1,5 +1,13 @@
 # Configure Github Pipeline for Azure
 
+
+## Pre-requisities:
+
+* Installed [azcli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+* Authenticated azcli
+* Set the subscription to the targeted subscription for deployment with azcli
+    * `az account set --subscription <mysubscription>`
+
 ## Process
 
 1. Create a service account with the ability to `create:security_scans`
@@ -8,14 +16,15 @@
 3. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
     * If there is no file then run `ssh-keygen` to generate one<br>
 4. Create SPN and application for Azure using the script `spn_bucket_create.sh`
-6. (optional) Run `curl ifconfig.me` and record your ip<br>
-7. Create a new branch in the local repo `git branch azure_pipelines_test_1`
-8. Switch to the new branch `git checkout azure_pipelines_test_1`
-7. (optional) Overwrite the `my_ip` variable in `demo.tfvars`<br>
-7. Overwrite the `subscription_id` variable in the `backend.tf` file<br>
-8. Add the creds to Github repo actions secrets including the ssh public key
+    * Record the json output and the subscription
+5. (optional) Run `curl ifconfig.me` and record your ip<br>
+6. Create a new branch in the local repo `git branch azure_pipelines_test_1`
+7. Switch to the new branch `git checkout azure_pipelines_test_1`
+8. (optional) Overwrite the `my_ip` variable in `demo.tfvars`<br>
+9. Overwrite the `subscription_id` variable in the `backend.tf` file<br>
+10. Add the creds to Github repo actions secrets including the ssh public key
 ![](./images/github_secrets_ssh.png)
-9. Push the repo to git hub
+11. Push the repo to git hub
 
 # Jenkins Demo Setup
 
