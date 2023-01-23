@@ -1,0 +1,61 @@
+on: [pull_request]
+
+name: AzurePipelineTests
+
+jobs:
+  azure-test-resources:
+      runs-on: ubuntu-latest
+      env:
+        SCAN_PATH: "."
+        IAC_POLICY: "iac-fail-medium" # Set the desired Wiz-cli policy to use
+        WIZ_CLIENT_ID: ${{ secrets.WIZ_CLIENT_ID }}
+        WIZ_CLIENT_SECRET: ${{ secrets.WIZ_CLIENT_SECRET }}
+        ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
+        ARM_TENANT_ID: ${{ secrets.TENANT_ID }}
+        ARM_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+
+      steps:
+      
+      - name: Checkout
+        uses: actions/checkout@v3.3.0      
+          
+      - name: Download Wiz-cli
+        run: curl -o wizcli https://wizcli.app.wiz.io/wizcli && chmod +x wizcli
+
+
+      - name: Authenticate to Wiz
+        run: ./wizcli auth --id "$WIZ_CLIENT_ID" --secret "$WIZ_CLIENT_SECRET"
+
+      - name: Run wiz-cli IaC scan
+        run: |
+          ls -lha
+          ./wizcli iac scan --path ${{ env.SCAN_PATH }}
+
+      - name: 'Terraform Init'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 1.3.7
+          tf_actions_subcommand: 'init'
+          tf_actions_working_dir: "./terraform"
+        env:
+          TF_VAR_ssh_pub_key: ${{ secrets.SSH_PUB_KEY }}
+
+      - name: 'Terraform Validate'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 1.3.7
+          tf_actions_subcommand: 'validate'
+          tf_actions_working_dir: "./terraform"
+        env:
+          TF_VAR_ssh_pub_key: ${{ secrets.SSH_PUB_KEY }}
+
+      - name: 'Terraform Plan'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 1.3.7
+          tf_actions_subcommand: 'plan'
+          tf_actions_working_dir: "./terraform"
+          args: '-var-file="demo.tfvars"'
+        env:
+          TF_VAR_ssh_pub_key: ${{ secrets.SSH_PUB_KEY }}          

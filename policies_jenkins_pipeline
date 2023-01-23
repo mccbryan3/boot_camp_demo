@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    stages {
+        stage('Download_WizCLI') {
+            steps {
+                // Download_WizCLI
+                sh 'echo "Downloading wizcli..."'
+                sh 'curl -o wizcli https://wizcli.demo.wiz.io/wizcli'
+                sh 'chmod +x wizcli'
+            } 
+        }
+        stage('Auth_With_Wiz') {
+            steps {
+                // Auth with Wiz
+                sh 'echo "Authenticating to the Wiz API..."'
+                withCredentials([usernamePassword(credentialsId: 'wiz-cli', usernameVariable: 'ID', passwordVariable: 'SECRET')]) {
+                sh './wizcli auth --id $ID --secret $SECRET'}
+            }
+        }
+        stage('Create-Dockerfile') {
+            steps {
+                // Build an file for scanning
+                sh 'echo "FROM ubuntu:latest" > Dockerfile'
+                sh 'echo "RUN mkdir -p /home/se/.aws/" >> Dockerfile'
+                sh 'echo "ENV AWS_KEY_ID=AKIAJSIE37KKMHXI3BJQ" >> Dockerfile'
+                sh 'echo "ENV AWS_ACCESS_KEY=abC2D0EFGh12IjkLMN3/opQ+Stuv3123u56wxyz7" >> Dockerfile'
+            }
+        }
+        stage('Scan-IaC') {
+            steps {
+                // Scanning the image
+                sh 'echo "Scanning the image using wizcli..."'
+                sh './wizcli iac scan --name "demo-jenkins$BUILD_NUMBER" --path Dockerfile --secrets -p iac-fail-medium -t "build_env=jenkins"'
+            }
+        }
+        stage('Build-Image') {
+            steps {
+                // Build an image for scanning
+                sh 'sudo docker build --no-cache -t ubuntu-image:0.$BUILD_NUMBER .'
+            }
+        }
+        stage('Scan-Docker') {
+            steps {
+                // Scanning the image
+                sh 'echo "Scanning the image using wizcli..."'
+                sh './wizcli docker scan --image "ubuntu-image:0.$BUILD_NUMBER" -p vuln-one-medium -p secrets -t "build_env=jenkins"'
+            }
+        }
+    }
+}
