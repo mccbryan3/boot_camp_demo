@@ -22,7 +22,7 @@
 5. Create SPN and application for Azure using the script `spn_bucket_create.sh`
     * Be sure you have authenticated with `az login`
     * Run `sed -i -e 's/\r$//' spn_bucket_create.sh` if you have issue with the interpreter
-    * chmod +x if required
+    * `chmod +x spn_bucket_create` if required
     * Record the json output and the subscription
 6. Create a new branch in the local repo `git branch azure_pipelines_test_1`
 7. Switch to the new branch `git checkout azure_pipelines_test_1`
