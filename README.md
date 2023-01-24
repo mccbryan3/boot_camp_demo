@@ -11,9 +11,9 @@
 ## Process
 
 1. Create a Wiz service account with the ability to `create:security_scans`
-2. <b>Fork</b> this gthub repo
-   * If you do not know how to fork..  please ask
+2. <b>From your Github account</b> create a private Github repo
    * Make it private
+   * Import using the `Code` button on the public repo
 3. Clone the repo locally
 4. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
     * If there is no file then run `ssh-keygen` to generate one<br>
