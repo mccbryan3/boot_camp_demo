@@ -6,7 +6,7 @@ on:
 name: AzurePipelineApply
 
 jobs:
-  azure-destroy-resources:
+  azure-deploy-resources:
       runs-on: ubuntu-latest
       env:
         ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
