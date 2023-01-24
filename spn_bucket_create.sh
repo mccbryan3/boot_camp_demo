@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ## Requires az cli installed, authenticated and set to a target subscription
 ## Used to setup SPN for github actions https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-cli%2Clinux#use-the-azure-login-action-with-a-service-principal-secret
