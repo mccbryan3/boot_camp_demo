@@ -3,6 +3,7 @@
 
 ## Pre-requisities:
 
+* IDE (VS Code preffered)
 * Installed [azcli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and `jq`
 * Authenticated `azcli`
 * Set the subscription to the targeted subscription for deployment with azcli
@@ -14,8 +15,8 @@
    * Record secret and key for future use
 2. <b>From your Github account</b> create a private Github repo
    * Make it private
-   * Import using the `Code` button on the public repo to VS Code
-3. Clone the repo locally
+   * Import using the url from the `Code` button on the (source) public repo
+3. Clone the repo locally into VS Code
    * Open a terminal in VS Code inside the cloned repo
 4. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
     * If there is no file then run `ssh-keygen` to generate one<br>
