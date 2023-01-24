@@ -10,7 +10,7 @@
 
 ## Process
 
-1. Create a service account with the ability to `create:security_scans`
+1. Create a Wiz service account with the ability to `create:security_scans`
 2. <b>Fork</b> this gthub repo
    * If you do not know how to fork..  please ask
    * Make it private
