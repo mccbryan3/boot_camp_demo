@@ -19,10 +19,10 @@
     * If there is no file then run `ssh-keygen` to generate one<br>
 5. Create SPN and application for Azure using the script `spn_bucket_create.sh`
     * Record the json output and the subscription
-6. (optional) Run `curl ifconfig.me` and record your ip<br>
+6. Create a new branch in the local repo `git branch azure_pipelines_test_1`
+7. Switch to the new branch `git checkout azure_pipelines_test_1`
+8. 6. (optional) Run `curl ifconfig.me` and record your ip<br>
     * (optional) Overwrite the `my_ip` variable in `demo.tfvars`<br>
-7. Create a new branch in the local repo `git branch azure_pipelines_test_1`
-8. Switch to the new branch `git checkout azure_pipelines_test_1`
 9. Overwrite the `subscription_id` variable in the `backend.tf` file<br>
 10. Add the creds to Github repo actions secrets including the ssh public key
 ![](./images/github_secrets_ssh.png)
