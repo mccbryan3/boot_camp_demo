@@ -11,6 +11,7 @@
 ## Process
 
 1. Create a Wiz service account with the ability to `create:security_scans` (use existing one if you have one)
+   * Record secret and key for future use
 2. <b>From your Github account</b> create a private Github repo
    * Make it private
    * Import using the `Code` button on the public repo to VS Code
