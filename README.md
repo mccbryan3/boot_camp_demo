@@ -13,18 +13,20 @@
 1. Create a service account with the ability to `create:security_scans`
 2. <b>Fork</b> this gthub repo
    * If you do not know how to fork..  please ask
-3. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
+
+3. Clone the repo locally
+4. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
     * If there is no file then run `ssh-keygen` to generate one<br>
-4. Create SPN and application for Azure using the script `spn_bucket_create.sh`
+5. Create SPN and application for Azure using the script `spn_bucket_create.sh`
     * Record the json output and the subscription
-5. (optional) Run `curl ifconfig.me` and record your ip<br>
-6. Create a new branch in the local repo `git branch azure_pipelines_test_1`
-7. Switch to the new branch `git checkout azure_pipelines_test_1`
-8. (optional) Overwrite the `my_ip` variable in `demo.tfvars`<br>
-9. Overwrite the `subscription_id` variable in the `backend.tf` file<br>
-10. Add the creds to Github repo actions secrets including the ssh public key
+6. (optional) Run `curl ifconfig.me` and record your ip<br>
+7. Create a new branch in the local repo `git branch azure_pipelines_test_1`
+8. Switch to the new branch `git checkout azure_pipelines_test_1`
+9. (optional) Overwrite the `my_ip` variable in `demo.tfvars`<br>
+10. Overwrite the `subscription_id` variable in the `backend.tf` file<br>
+11. Add the creds to Github repo actions secrets including the ssh public key
 ![](./images/github_secrets_ssh.png)
-11. Push the repo to git hub
+12. Push the repo to git hub
 
 # Jenkins Demo Setup
 
