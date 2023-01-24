@@ -29,8 +29,9 @@
 8. 6. (optional) Run `curl ifconfig.me` and record your ip<br>
     * (optional) Overwrite the `my_ip` variable in `demo.tfvars`<br>
 9. Overwrite the `subscription_id` variable in the `backend.tf` file<br>
-10. Add the `subscription_id="<yoursub_id>"` to the `azurerm` provider in the `providers.tf` file
-11. Add the creds to Github repo actions secrets including the ssh public key
+10. Overwrite the storage account name in the `backend.tf` file<br>
+11. Add the `subscription_id="<yoursub_id>"` to the `azurerm` provider in the `providers.tf` file
+12. Add the creds to Github repo actions secrets including the ssh public key
 ![](./images/github_secrets_ssh.png)
 12. Push the repo to git hub
 13. Add branch protection
