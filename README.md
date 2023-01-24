@@ -27,6 +27,7 @@
 10. Add the creds to Github repo actions secrets including the ssh public key
 ![](./images/github_secrets_ssh.png)
 11. Push the repo to git hub
+12. Add branch protection
 
 # Jenkins Demo Setup
 
