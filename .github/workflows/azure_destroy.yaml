@@ -2,6 +2,8 @@ on:
   pull_request:
     branches:
     - destroy
+    types:
+    - closed
 
 name: AzurePipelineDestroy
 
