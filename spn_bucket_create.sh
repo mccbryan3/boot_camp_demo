@@ -3,11 +3,10 @@
 ## Requires az cli installed, authenticated and set to a target subscription
 ## Used to setup SPN for github actions https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-cli%2Clinux#use-the-azure-login-action-with-a-service-principal-secret
 # Harvest the subscription ID here
-IFS='-'
-read -ra uuid <<< $(uuidgen)
+export USERNAME="<your_first_name_in_lowercase>"
 export SUBSCRIPTION_ID=$(az account show | jq '.id' | sed 's/\"//g')
 export TENANT_ID=$(az account show | jq '.tenantId' | sed 's/\"//g')
-export STORAGE_ACCOUNT_NAME="wizpipelinestorage$uuid"
+export STORAGE_ACCOUNT_NAME="wizpipelinestorage$USERNAME"
 export CONTAINER_NAME="terraformstate"
 # Default name of the app registration we are creating
 export WIZ_PIPELINE_SPN_NAME="wiz-pipeline-spn"
