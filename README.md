@@ -18,6 +18,7 @@
 4. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
     * If there is no file then run `ssh-keygen` to generate one<br>
 5. Create SPN and application for Azure using the script `spn_bucket_create.sh`
+    * Run `sed -i -e 's/\r$//' spn_bucket_create.sh` if you have issue with the interpreter
     * Record the json output and the subscription
 6. Create a new branch in the local repo `git branch azure_pipelines_test_1`
 7. Switch to the new branch `git checkout azure_pipelines_test_1`
