@@ -1,9 +1,9 @@
 on:
   pull_request:
-    branches:
-    - destroy
+    types:
+    - closed
 
-name: AzurePipelineDestroy
+name: AzurePipelineApply
 
 jobs:
   azure-destroy-resources:
@@ -27,14 +27,23 @@ jobs:
           tf_actions_working_dir: "./terraform"
         env:
           TF_VAR_ssh_pub_key: ${{ secrets.SSH_PUB_KEY }}
-    
-    
-      - name: 'Terraform Destroy'
+      
+      - name: 'Terraform Plan'
         uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version: 1.3.7
-          tf_actions_subcommand: 'destroy'
+          tf_actions_subcommand: 'plan'
           tf_actions_working_dir: "./terraform"
           args: '-var-file="./demo.tfvars"'
         env:
-          TF_VAR_ssh_pub_key: ${{ secrets.SSH_PUB_KEY }}
+          TF_VAR_ssh_pub_key: ${{ secrets.SSH_PUB_KEY }} 
+    
+      - name: 'Terraform Apply'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 1.3.7
+          tf_actions_subcommand: 'apply'
+          tf_actions_working_dir: "./terraform"
+          args: '-var-file="./demo.tfvars"'
+        env:
+          TF_VAR_ssh_pub_key: ${{ secrets.SSH_PUB_KEY }}    
