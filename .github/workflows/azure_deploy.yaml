@@ -1,12 +1,12 @@
 on:
   pull_request:
-    types:
-    - closed
+    branches:
+    - destroy
 
-name: AzurePipelineDeploy
+name: AzurePipelineDestroy
 
 jobs:
-  azure-deploy-resources:
+  azure-destroy-resources:
       runs-on: ubuntu-latest
       env:
         ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
