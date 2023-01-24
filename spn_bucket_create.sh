@@ -15,6 +15,6 @@ export RESOURCE_GROUP_NAME=$(az group create --name $WIZ_DEMO_RG_NAME --location
 # Create storage account
 az storage account create --resource-group $WIZ_DEMO_RG_NAME --name $STORAGE_ACCOUNT_NAME --sku Standard_LRS --encryption-services blob
 # Create blob container
-az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME
+az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME --auth-mode login
 az ad sp create-for-rbac -n $WIZ_PIPELINE_SPN_NAME --role contributor --scopes /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$WIZ_DEMO_RG_NAME
 echo "Subscription ID: $SUBSCRIPTION_ID"
