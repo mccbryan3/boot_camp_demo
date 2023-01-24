@@ -10,27 +10,27 @@
 
 ## Process
 
-1. Create a Wiz service account with the ability to `create:security_scans`
+1. Create a Wiz service account with the ability to `create:security_scans` (use existing one if you have one)
 2. <b>From your Github account</b> create a private Github repo
    * Make it private
    * Import using the `Code` button on the public repo to VS Code
 3. Clone the repo locally
-4.    * Open a terminal in VS Code inside the cloned repo
-5. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
+   * Open a terminal in VS Code inside the cloned repo
+4. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
     * If there is no file then run `ssh-keygen` to generate one<br>
-6. Create SPN and application for Azure using the script `spn_bucket_create.sh`
+5. Create SPN and application for Azure using the script `spn_bucket_create.sh`
     * Run `sed -i -e 's/\r$//' spn_bucket_create.sh` if you have issue with the interpreter
     * Record the json output and the subscription
-7. Create a new branch in the local repo `git branch azure_pipelines_test_1`
-8. Switch to the new branch `git checkout azure_pipelines_test_1`
-9. 6. (optional) Run `curl ifconfig.me` and record your ip<br>
+6. Create a new branch in the local repo `git branch azure_pipelines_test_1`
+7. Switch to the new branch `git checkout azure_pipelines_test_1`
+8. 6. (optional) Run `curl ifconfig.me` and record your ip<br>
     * (optional) Overwrite the `my_ip` variable in `demo.tfvars`<br>
-10. Overwrite the `subscription_id` variable in the `backend.tf` file<br>
-11. Add the `subscription_id="<yoursub_id>"` to the `azurerm` provider in the `providers.tf` file
-12. Add the creds to Github repo actions secrets including the ssh public key
+9. Overwrite the `subscription_id` variable in the `backend.tf` file<br>
+10. Add the `subscription_id="<yoursub_id>"` to the `azurerm` provider in the `providers.tf` file
+11. Add the creds to Github repo actions secrets including the ssh public key
 ![](./images/github_secrets_ssh.png)
-11. Push the repo to git hub
-12. Add branch protection
+12. Push the repo to git hub
+13. Add branch protection
 
 # Jenkins Demo Setup
 
