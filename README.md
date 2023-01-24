@@ -3,8 +3,8 @@
 
 ## Pre-requisities:
 
-* Installed [azcli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
-* Authenticated azcli
+* Installed [azcli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and `jq`
+* Authenticated `azcli`
 * Set the subscription to the targeted subscription for deployment with azcli
     * `az account set --subscription <mysubscription>`
 
