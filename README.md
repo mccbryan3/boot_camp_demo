@@ -13,7 +13,7 @@
 1. Create a service account with the ability to `create:security_scans`
 2. <b>Fork</b> this gthub repo
    * If you do not know how to fork..  please ask
-
+   * Make it private
 3. Clone the repo locally
 4. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
     * If there is no file then run `ssh-keygen` to generate one<br>
@@ -24,6 +24,7 @@
 8. 6. (optional) Run `curl ifconfig.me` and record your ip<br>
     * (optional) Overwrite the `my_ip` variable in `demo.tfvars`<br>
 9. Overwrite the `subscription_id` variable in the `backend.tf` file<br>
+10. Add the `subscription_id="<yoursub_id>"` to the `azurerm` provider in the `providers.tf` file
 10. Add the creds to Github repo actions secrets including the ssh public key
 ![](./images/github_secrets_ssh.png)
 11. Push the repo to git hub
