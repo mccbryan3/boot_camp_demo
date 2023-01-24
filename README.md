@@ -5,10 +5,10 @@
 
 * IDE (VS Code preffered)
 * Installed [azcli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and `jq`
-* Enable the Microsoft.Compute and Microsoft.Network providers in Azure
 * Authenticated `azcli`
 * Set the subscription to the targeted subscription for deployment with azcli
     * `az account set --subscription <mysubscription>`
+* Enable the Microsoft.Compute and Microsoft.Network providers in Azure
 
 ## Process
 
