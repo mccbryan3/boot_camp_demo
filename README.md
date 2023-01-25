@@ -36,10 +36,11 @@
 11. Add the `subscription_id="<yoursub_id>"` to the `azurerm` provider in the `providers.tf` file
 12. Add the creds to Github repo actions secrets including the ssh public key
 ![](./images/github_secrets_ssh.png)
-12. Push the repo to git hub
-13. Create a Pull Request
+13. Push the repo to git hub
+14. Create a Pull Request
     * NOTE: Do not merge!!!
-14. Add branch protection if desired
+15. Verify tests complete successfully and then merge your PR
+16. Add branch protection if desired
 
 # Jenkins Demo Setup
 
