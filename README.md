@@ -16,7 +16,7 @@
    * Record secret and key for future use
 2. <b>From your Github account</b> create a private Github repo
    * Make it private
-   * Import using the url from the `Code` button on the (source) public repo
+   * After creation, Import using the url from the `Code` button on the (source) public repo
      `https://github.com/mccbryan3/boot_camp_demo.git`
 3. Clone the repo locally into VS Code
    * Open a terminal in VS Code inside the cloned repo
