@@ -26,6 +26,13 @@ pipeline {
                 sh 'echo "ENV AWS_ACCESS_KEY=abC2D0EFGh12IjkLMN3/opQ+Stuv3123u56wxyz7" >> Dockerfile'
             }
         }
+        stage('Scan-Dir') {
+            steps {
+                // Scanning the repository
+                sh 'echo "Scanning the image using wizcli..."'
+                sh './wizcli dir scan --path . -t "build_env=jenkins"'
+            }
+        }
         stage('Scan-IaC') {
             steps {
                 // Scanning the image
