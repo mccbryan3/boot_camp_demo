@@ -26,10 +26,13 @@ jobs:
 
       - name: Authenticate to Wiz
         run: ./wizcli auth --id "$WIZ_CLIENT_ID" --secret "$WIZ_CLIENT_SECRET"
+      
+      - name: Run wiz-cli IaC scan
+        run: |
+          ./wizcli dir scan --path ${{ env.SCAN_PATH }}
 
       - name: Run wiz-cli IaC scan
         run: |
-          ls -lha
           ./wizcli iac scan --path ${{ env.SCAN_PATH }}
 
       - name: 'Terraform Init'
