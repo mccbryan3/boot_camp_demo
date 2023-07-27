@@ -17,7 +17,8 @@
 2. <b>From your Github account</b> create a private Github repo
    * Make it private
    * After creation, Import using the url from the `Code` button on the (source) public repo
-     `https://github.com/mccbryan3/boot_camp_demo.git`
+     `https://github.com/mccbryan3/boot_camp_demo.git`</br></br>
+![](./images/import_repo.png)
 3. Clone the repo locally into VS Code
    * Open a terminal in VS Code inside the cloned repo
 4. Check that you have an ssh public key `cat ~/.ssh/id_rsa.pub`<br>
