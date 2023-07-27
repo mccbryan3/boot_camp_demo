@@ -27,7 +27,7 @@ jobs:
       - name: Authenticate to Wiz
         run: ./wizcli auth --id "$WIZ_CLIENT_ID" --secret "$WIZ_CLIENT_SECRET"
       
-      - name: Run wiz-cli IaC scan
+      - name: Run wiz-cli Dir scan
         run: |
           ./wizcli dir scan --path ${{ env.SCAN_PATH }}
 
