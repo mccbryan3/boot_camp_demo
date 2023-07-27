@@ -7,5 +7,6 @@ terraform {
     storage_account_name = "wizpipelinestorage"
     container_name       = "terraformstate"
     key                  = "root.terraform.tfstate"
+    tenant_id            = "<tenant_id>"
   }
 }
