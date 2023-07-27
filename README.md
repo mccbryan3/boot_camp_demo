@@ -38,7 +38,7 @@
 ![](./images/github_secrets_ssh.png)
 13. Push the repo to git hub
 14. Create a Pull Request
-    * NOTE: Do not merge!!!
+    * NOTE: DO NOT MERGE!!!
 15. Verify tests complete successfully and then merge your PR
 16. Add branch protection if desired
 
