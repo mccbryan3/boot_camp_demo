@@ -32,7 +32,7 @@
 7. Switch to the new branch `git checkout azure_pipelines_test_1`
 8. 6. (optional) Run `curl ifconfig.me` and record your ip<br>
     * (optional) Overwrite the `my_ip` variable in `demo.tfvars`<br>
-9. Overwrite the `subscription_id` variable in the `backend.tf` file<br>
+9. Overwrite the `subscription_id` and `tenant_id` variables in the `backend.tf` file with your information<br>
 10. Overwrite the `storage_account_name` in the `backend.tf` file<br>
 11. Add the `subscription_id="<yoursub_id>"` to the `azurerm` provider in the `providers.tf` file
 12. Add the creds to Github repo actions secrets including the ssh public key
