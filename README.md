@@ -87,7 +87,7 @@
     a. Manage Jenkins<br>
     ![](./images/manage_jenkins.png)<br>
     b. Manage Credentials<br>
-    ![](./images/manage_creds.png)<br>
+    ![](./images/manage_creds_updated.png)<br>
     c. System<br>
     ![](./images/system_credentials.png)<br>
     d. Global Credentials<br>
