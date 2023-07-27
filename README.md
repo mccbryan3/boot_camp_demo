@@ -95,7 +95,8 @@
     e. Add Credentials<br>
     ![](./images/add_creds.png)<br>
     f. Add `username and password` credentials as shown below.<br>
-        * NOTE: Be sure to give them the id of `wiz-cli`<br>
+   <br> * NOTE: These credentials are the Username=`WIZ_CLIENT_ID` and Password=`WIZ_CLIENT_SECRET` from the Wiz service account.
+   <br> * NOTE: Be sure to give this credential the `ID` of `wiz-cli` in the `ID` field<br><br>
     ![](./images/create_password.png)<br>
 
 16. Go back to the Jenkins Dashboard<br>
